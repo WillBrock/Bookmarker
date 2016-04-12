@@ -1,0 +1,54 @@
+<div class="list-container {{ListCtrl.toggle_container}}">
+	<div class="header title group-title">
+		{{ListCtrl.group.title}}
+	</div>
+
+	<div class="add-list">
+		<form ng-submit="ListCtrl.addItem()">
+			<div class="ui input left icon fluid">
+				<i class="icon add"></i>
+				<input ng-model="ListCtrl.description" placeholder="Add list item...">
+			</div>
+		</form>
+	</div>
+
+	<div class="ui middle aligned celled divided list list-items" ng-if="ListCtrl.lists.length">
+		<div class="item list-item" ng-repeat="list in ListCtrl.lists">
+			<div class="left floated content">
+				<input type="checkbox" ng-click="ListCtrl.markCompleted($index)" ng-model="list.completed">
+			</div>
+
+			<div class="right floated content">
+				<i class="icon remove red delete-item" ng-click="ListCtrl.deleteItem($index)"></i>
+			</div>
+
+			<div class="content">
+				<span class="ui input fluid desktop-description-container">
+					<input class="description-input" value="{{list.description}}" ng-model="list.description" ng-change="ListCtrl.editItem($index)">
+				</span>
+
+				<span class="ui fluid mobile-description-container" ng-click="ListCtrl.showModal($index)">
+					{{list.description}}
+				</span>
+			</div>
+		</div>
+	</div>
+</div>
+
+<modal ng-model="ListCtrl.show_modal">
+	<i class="close icon"></i>
+	<form class="ui form segment edit-form" ng-submit="ListCtrl.editItem(ListCtrl.modal.index, true)">
+		<h2 class="ui header center">Edit Item</h2>
+
+		<div class="field">
+			<input name="description" placeholder="Description" ng-model="ListCtrl.modal.description" value="{{ListCtrl.modal.description}}">
+		</div>
+
+		<div class="field">
+			<div class="button-container">
+				<button class="ui submit button positive">Save</button>
+			</div>
+		</div>
+	</form>
+
+</modal>

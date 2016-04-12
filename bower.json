@@ -1,0 +1,9 @@
+{
+	"name": "angular",
+	"version": "1.0.0",
+	"dependencies": {
+		"angular": "latest",
+		"angular-route": "latest",
+		"angular-resource": "latest"
+	}
+}

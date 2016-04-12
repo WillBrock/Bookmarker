@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<base href="/">
+
+		<title>Bookmarker</title>
+
+		<!-- CSS libs -->
+		<link rel="stylesheet" href="libs/semantic/dist/semantic.min.css">
+
+		<!-- Site CSS -->
+		<link rel="stylesheet" href="main/build/main/main.css">
+		<link rel="stylesheet" href="main/build/bookmarks/bookmarks.css">
+		<link rel="stylesheet" href="main/build/groups/groups.css">
+		<link rel="stylesheet" href="main/build/lists/lists.css">
+		<link rel="stylesheet" href="http://cdn.jsdelivr.net/meyer-reset/2.0/reset.min.css">
+
+		<!-- JS -->
+		<script src="libs/jquery/dist/jquery.min.js"></script>
+		<script src="libs/semantic/dist/semantic.min.js"></script>
+		<script src="libs/underscore/underscore-min.js"></script>
+		<script src="libs/angular/angular.min.js"></script>
+		<script src="libs/angular-resource/angular-resource.min.js"></script>
+		<script src="libs/angular-ui-router/release/angular-ui-router.min.js"></script>
+
+		<!-- ANGULAR CUSTOM -->
+		<script src="main/modules/main/controller.js"></script>
+		<script src="main/modules/bookmarks/states.js"></script>
+		<script src="main/modules/bookmarks/controller.js"></script>
+		<script src="main/modules/bookmarks/service.js"></script>
+		<script src="main/modules/lists/states.js"></script>
+		<script src="main/modules/lists/controller.js"></script>
+		<script src="main/modules/lists/service.js"></script>
+		<script src="main/modules/groups/controller.js"></script>
+		<script src="main/modules/groups/service.js"></script>
+		<script src="main/app.js"></script>
+		<script src="libs/modal/modal.js"></script>
+	</head>
+
+	<body ng-app="mainApp" ng-controller="MainController">
+		<div class="main-header">
+			<div class="ui menu secondary tab-container">
+				<a class="item mobile-menu-icon" ng-click="toggleMenu()"><i class="sidebar icon large"></i></a>
+				<a class="item logo">Logo</a>
+				<a class="item" ui-sref="bookmarks.details()" ui-sref-active="active-menu">Bookmarks</a>
+				<a class="item" ui-sref="lists.details()" ui-sref-active="active-menu">Lists</a>
+
+				<div class="right menu">
+					<a class="ui item" ng-click="logout()">Logout</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="ui menu vertical fluid mobile-menu" ng-show="display_menu">
+			<a class="item" ui-sref="bookmarks.details()" ng-click="toggleMenu()">Bookmarks</a>
+			<a class="item" ui-sref="lists.details()" ng-click="toggleMenu()">Lists</a>
+		</div>
+
+		<!-- angular dynamic content -->
+		<div class="main-container">
+			<div ui-view></div>
+		</div>
+	</body>
+</html>

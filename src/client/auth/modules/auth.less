@@ -1,0 +1,100 @@
+body {
+	background : #f7f7f7;
+
+	.main-header {
+		background : #3b83c0;
+		padding    : 1em;
+		width      : 100%;
+		min-height : 85px;
+
+		.logo-container {
+			padding-top : .85em;
+			float       : left;
+			width       : 40%;
+
+			.ui.header {
+				text-transform : uppercase;
+				color          : #fff;
+				font-size      : 1.5rem;
+			}
+		}
+
+		.login-form-container {
+			float : right;
+			width : 45%;
+
+			.forgot-password {
+				margin-top : .3em;
+
+				a {
+					color : #fff;
+				}
+			}
+
+			.login-button-field {
+				width : 5% !important;
+			}
+		}
+	}
+
+	.mobile-version {
+		.logo-container {
+			padding    : .7em;
+			background : #3b83c0;
+			color      : #fff;
+			text-align : center;
+		}
+	}
+
+	.desktop-header-version,
+	.desktop-content-version {
+		display : none;
+	}
+
+	/* Misc */
+
+	.register-message {
+		margin-top : .7em !important;
+	}
+}
+
+@media (max-width : 599px) {
+	.main-header {
+		text-align : center;
+
+		.login-form-container {
+			display : none;
+		}
+	}
+
+	.desktop-header-version,
+	.desktop-content-version {
+		display : none !important;
+	}
+
+	.forgot-password {
+		margin-top : 1em;
+	}
+}
+
+@media (min-width : 600px) {
+	.desktop-header-version {
+		display : block !important;
+	}
+
+	.desktop-content-version {
+		display : flex !important;
+	}
+
+	.mobile-version {
+		display : none;
+	}
+
+	.login-error-message {
+		height     : 40px;
+		padding    : .8em 0 .5em 0;
+		background : #ffe8e6;
+		color      : #db2828;
+		text-align : center;
+	}
+}

@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<base href="/">
+
+		<title>Bookmarker Login</title>
+
+		<!-- CSS -->
+		<link rel="stylesheet" href="libs/semantic/dist/semantic.min.css">
+		<link rel="stylesheet" href="main/build/auth.css">
+		<link rel="stylesheet" href="http://cdn.jsdelivr.net/meyer-reset/2.0/reset.min.css">
+
+		<!-- JS -->
+		<script src="libs/angular/angular.min.js"></script>
+		<script src="libs/angular-route/angular-route.min.js"></script>
+		<script src="libs/angular-resource/angular-resource.min.js"></script>
+		<script src="libs/jquery/dist/jquery.min.js"></script>
+		<script src="libs/semantic/dist/semantic.min.js"></script>
+
+		<!-- ANGULAR CUSTOM -->
+		<script src="auth/modules/routes.js"></script>
+		<script src="auth/modules/controller.js"></script>
+		<script src="auth/modules/service.js"></script>
+		<script src="auth/app.js"></script>
+	</head>
+
+	<body ng-app="authApp" ng-controller="AuthController as AuthCtrl">
+		<div class="login-error-message" ng-if="AuthCtrl.authenticate.error_message">
+			<p>{{AuthCtrl.authenticate.error_message}}</p>
+		</div>
+
+		<div class="main-header desktop-header-version">
+			<div class="logo-container">
+				<h2 class="ui header">Bookmarker</h2>
+			</div>
+
+			<div class="ui form login-form-container">
+				<form class="three fields">
+					<div class="field">
+						<div class="ui icon input">
+							<i class="user icon"></i>
+							<input name="email" placeholder="Email" ng-model="AuthCtrl.authenticate.email">
+						</div>
+					</div>
+
+					<div class="field">
+						<div class="ui icon input">
+							<i class="lock icon"></i>
+							<input type="password" name="password" placeholder="Password" ng-model="AuthCtrl.authenticate.password">
+						</div>
+
+						<div class="forgot-password">
+							<a href="#">Forgot Password</a>
+						</div>
+					</div>
+
+					<div class="field login-button-field">
+						<button class="ui button positive login-button" ng-click="AuthCtrl.login()">Login</button>
+					</div>
+				</form>
+			</div>
+		</div>
+
+		<!-- angular dynamic content -->
+		<div ng-view></div>
+
+	</body>
+</html>

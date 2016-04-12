@@ -1,0 +1,52 @@
+<div class="bookmarks-container {{BookmarkCtrl.toggle_container}}">
+	<div class="header title group-title">
+		{{BookmarkCtrl.group.title}}
+	</div>
+
+	<div class="ui aligned celled divided list">
+		<div class="item bookmark-item" ng-repeat="bookmark in BookmarkCtrl.bookmarks">
+			<div class="right floated content">
+				<i ng-click="BookmarkCtrl.showModal($index)" class="write icon grey edit-bookmark"></i>
+			</div>
+
+			<div class="content">
+				<a ng-href="http://{{bookmark.url}}" target="_blank">{{bookmark.title}}</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="mobile-add-button">
+	<i class="add circle big green icon" ng-click="BookmarkCtrl.showModal()"></i>
+</div>
+
+<div class="desktop-add-button">
+	<i class="add circle big green icon" ng-click="BookmarkCtrl.showModal()"></i>
+</div>
+
+<modal ng-model="BookmarkCtrl.show_modal">
+	<i class="close icon"></i>
+	<form class="ui form segment edit-form" ng-submit="BookmarkCtrl.editBookmark(BookmarkCtrl.modal._id)">
+		<h2 class="ui header center">{{BookmarkCtrl.modal.display_text}} Bookmark</h2>
+
+		<div class="field">
+			<input id="add-url" name="url" placeholder="Url" ng-model="BookmarkCtrl.modal.url" value="{{BookmarkCtrl.modal.url}}">
+		</div>
+
+		<div class="field">
+			<input name="title" placeholder="Title" ng-model="BookmarkCtrl.modal.title" value="{{BookmarkCtrl.modal.title}}">
+		</div>
+
+		<div class="field">
+			<input name="description" placeholder="Description" ng-model="BookmarkCtrl.modal.description" value="{{BookmarkCtrl.modal.description}}">
+		</div>
+
+		<div class="field">
+			<div class="button-container">
+				<button type="button" class="ui button negative" ng-click="BookmarkCtrl.deleteBookmark(BookmarkCtrl.modal._id)" ng-if="BookmarkCtrl.modal.edit">Delete</button>
+				<button class="ui submit button positive">{{BookmarkCtrl.modal.display_text}}</button>
+			</div>
+		</div>
+	</form>
+</modal>
+

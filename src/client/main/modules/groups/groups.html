@@ -1,0 +1,38 @@
+<div class="group-container {{GroupCtrl.toggle_groups}}">
+	<ul>
+		<li class="add-group-container">
+			<form class="add-group" ng-submit="GroupCtrl.addGroup(GroupCtrl.group_type)">
+				<div class="ui input left icon">
+					<i class="add icon"></i>
+					<input type="text" ng-model="GroupCtrl.title" placeholder="Add Group...">
+				</div>
+			</form>
+		</li>
+
+		<li ng-repeat="group in GroupCtrl.groups">
+			<a ui-sref="{{group.type}}s.details({group_id : group._id})" ui-sref-active="active-group">{{group.title}}</a>
+			<i class="write icon edit-icon" ng-click="GroupCtrl.showModal($index)"></i>
+		</li>
+	</ul>
+</div>
+
+<div ui-view></div>
+
+<modal ng-model="GroupCtrl.show_modal">
+	<i class="close icon"></i>
+	<form class="ui form segment edit-form" ng-submit="GroupCtrl.editGroup(GroupCtrl.modal.index)">
+		<h2 class="ui header center">Edit Group</h2>
+
+		<div class="field">
+			<input name="title" placeholder="Title" ng-model="GroupCtrl.group.title" value="{{GroupCtrl.group.title}}">
+		</div>
+
+		<div class="field">
+			<div class="button-container">
+				<button type="button" class="ui button negative" ng-click="GroupCtrl.deleteGroup(GroupCtrl.modal.index)">Delete</button>
+				<button class="ui submit button positive">Edit</button>
+			</div>
+		</div>
+	</form>
+</modal>
+
