@@ -1,0 +1,26 @@
+{
+  "name": "bookmarker",
+  "version": "0.0.0",
+  "authors": [
+    "Will Brock <wpbrock@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "bookmarker.willbrock.me",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular"           : "latest",
+    "angular-route"     : "latest",
+    "angular-resource"  : "latest",
+    "angular-ui-router" : "latest",
+    "modal"             : "latest",
+    "semantic"          : "latest",
+    "jquery"            : "latest",
+    "underscore"        : "latest"
+  }
+}
