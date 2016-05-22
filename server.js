@@ -5,7 +5,7 @@ var method_override = require('method-override');
 var morgan          = require('morgan');
 var mongoose        = require('mongoose');
 var db              = require(__dirname + '/config/db');
-var port            = process.env.PORT || 8080;
+var port            = process.env.PORT || 12345;
 var User            = require(__dirname + '/src/server/models/User');
 
 mongoose.connect(db.url);
