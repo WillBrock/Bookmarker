@@ -1,0 +1,11 @@
+.edit-form {
+  display: flex;
+  margin: .5em !important;
+  flex-direction: column;
+}
+.edit-form .header {
+  text-align: center;
+}
+.edit-form .button-container {
+  float: right;
+}

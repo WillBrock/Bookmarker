@@ -1,0 +1,25 @@
+.bookmarks-container .hidden {
+  display: none !important;
+}
+.bookmarks-container .bookmark-item:hover {
+  background: #f7f7f7;
+}
+.bookmarks-container .bookmark-item .edit-bookmark {
+  cursor: pointer;
+}
+.bookmarks-container .no-bookmarks {
+  margin-top: 1em;
+  text-align: center;
+}
+@media (min-width: 599px) {
+  .bookmarks-container {
+    position: absolute !important;
+    left: 190px;
+    right: 0px;
+    padding: 0;
+    margin: 0em 1em 1em 1em !important;
+  }
+  .bookmarks-container .header.title {
+    display: none;
+  }
+}
